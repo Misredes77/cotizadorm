@@ -87,7 +87,9 @@
             try {                    
                     Class.forName("com.mysql.jdbc.Driver");//para usar el codigo mysql
                     //DriverManager: Administrador de controladores
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/bdcotizacion?user=root&password=");
+                    //con = DriverManager.getConnection("jdbc:mysql://localhost/bdcotizacion?user=root&password=");
+                    String url="jdbc:mysql://cotizador-server.mysql.database.azure.com:3306/bdcotizacion?useSSL=true";
+                    con = DriverManager.getConnection(url, "root", "");
                     st = con.createStatement();
                     rs = st.executeQuery("SELECT * FROM admin WHERE User='"+user+"' AND Password='"+password+"';");
                     //request.getRequestDispatcher("index.jsp").forward(request, response);//redireccionar a la pagina index
